@@ -1,0 +1,79 @@
+<%- include header %>
+<div class="wrapper" id="user-list">
+    <%- include nav %>
+    <div class="page-wrap">
+        <div class="interval-body">
+            <div class="interval-list user-list">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>token</th>
+                        <th>用户名</th>
+                        <th>QQ</th>
+                        <th>手机</th>
+                        <th>微信</th>
+                        <th>重复执行数量</th>
+                        <th>单次执行数量</th>
+                        <th>平台数量</th>
+                        <th>过期时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <%
+                        userlist.forEach(function(v){
+                            var info = v.info,
+                                plat_list = v.platform || [];
+                    %>
+                    <tbody>
+                    <tr>
+                        <td><%= info.token %></td>
+                        <td><%= info.user_name %></td>
+                        <td><%= info.qq || '空' %></td>
+                        <td><%= info.phone || '空' %></td>
+                        <td><%= info.weixin || '空' %></td>
+                        <td><%= info.multiple_a %></td>
+                        <td><%= info.single_a %></td>
+                        <td><%= info.platform_a %></td>
+                        <td><%= info.expiry || 0 %></td>
+                        <td>
+                            <input data-username="<%= info.user_name %>" class="remove-user" type="button" value="删除用户" />
+                        </td>
+                    </tr>
+                    <% if( plat_list.length ){ %>
+                    <tr>
+                        <td colspan="10">
+                            <table>
+                                <tbody>
+                                    <%
+
+                                            plat_list.forEach(function(val){
+                                                var plat_info = val.plat_info;
+                                    %>
+                                    <tr>
+                                        <td>平台名称：</td>
+                                        <td><%= plat_info.name %></td>
+                                        <td>平台帐号：</td>
+                                        <td><%= plat_info.username %></td>
+                                        <td>平台密码：</td>
+                                        <td><%= plat_info.pwd %></td>
+                                        <td>
+                                            <input data-username="<%= info.user_name %>"  data-platform="<%= plat_info.name %>" class="remove-platform" type="button" value="删除公众平台" />
+                                        </td>
+                                    <tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <% } %>
+                    </tbody>
+                    <% }) %>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

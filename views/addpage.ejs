@@ -1,0 +1,50 @@
+<%- include header %>
+	<div class="wrapper" id="add-page">
+        <%- include nav %>
+        <div class="page-wrap">
+		    <div class="addpage-header">
+            <form id="addpage-form" action="/adduser" method="get">
+                <ul class="input-list">
+                    <li>
+                        <label class="label">用户名：</label>
+                        <input datatype="*" name="user_name" type="text" value="" />
+                    </li>
+                    <li>
+                        <label class="label">QQ：</label>
+                        <input name="qq" type="text" value="" />
+                    </li>
+                    <li>
+                        <label class="label">手机：</label>
+                        <input name="phone" type="text" value="" />
+                    </li>
+                    <li>
+                        <label class="label">微信：</label>
+                        <input name="weixin" type="text" value="" />
+                    </li>
+                    <li>
+                        <label class="label">重复执行数量：</label>
+                        <input datatype="n" name="multiple_a" type="text" value="2" />
+                    </li>
+                    <li>
+                        <label class="label">单次执行数量：</label>
+                        <input datatype="n" name="single_a" type="text" value="10" />
+                    </li>
+                    <li>
+                        <label class="label">平台数量：</label>
+                        <input datatype="n" name="platform_a" type="text" value="2" />
+                    </li>
+                    <li>
+                        <label class="label">过期时间：</label>
+                        <input datatype="*" name="expiry" class="datepicker time" id="datepicker" type="text" value="" />
+                    </li>
+                    <li>
+                        <input id="add-user" class="add-user" type="button" value="添加用户" />
+                        <span id="err-tiper"></span>
+                    </li>
+                </ul>
+            </form>
+		</div>
+        </div>
+  </div>
+  </body>
+</html>

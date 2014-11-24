@@ -1,0 +1,39 @@
+<%- include header %>
+<div class="wrapper" id="add-plat">
+    <%- include nav %>
+    <div class="fl page-wrap">
+            <ul class="view-interval-list">
+                <% modeText = ["重复执行", "执行一次"]; %>
+                <% for(var attr1 in data ) { %>
+                <li>
+                    用户：<%= attr1 %>
+                    <ul>
+                        <% for( var attr2 in data[attr1] ){ %>
+                            <li>
+                                公众平台：<%= attr2 %>
+                                <ul>
+                                    <% for( var attr3 in data[attr1][attr2] ){ %>
+                                        <li>
+                                            执行方式：<%= modeText[+attr3] %>
+                                            <ul>
+                                                <% for( var attr4 in data[attr1][attr2][attr3] ){ %>
+                                                <li>
+                                                    定时任务ID：<%= attr4 %>
+                                                </li>
+                                                <% } %>
+                                            </ul>
+                                        </li>
+                                    <% } %>
+                                </ul>
+                            </li>
+                        <% } %>
+                    </ul>
+                </li>
+                <% } %>
+
+
+            </ul>
+    </div>
+</div>
+</body>
+</html>
